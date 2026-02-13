@@ -4,25 +4,37 @@ body {
   background-color: #f5f7fa;
 }
 
+/* LOGIN */
+
 .login-container {
+  padding: 40px 20px;
   text-align: center;
-  margin-top: 150px;
+}
+
+.login-container h1 {
+  font-size: 28px;
 }
 
 .login-container input {
-  padding: 10px;
-  width: 250px;
-  border-radius: 6px;
+  width: 100%;
+  max-width: 320px;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
   border: 1px solid #ccc;
+  margin-top: 15px;
 }
 
 .login-container button {
-  padding: 10px 20px;
-  margin-top: 10px;
+  width: 100%;
+  max-width: 320px;
+  padding: 14px;
+  margin-top: 12px;
+  font-size: 16px;
   border: none;
   background-color: #0070ba;
   color: white;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
@@ -30,39 +42,61 @@ body {
   background-color: #005c99;
 }
 
+/* LOADER */
+
 .loader {
-  margin: 20px auto;
-  border: 4px solid #e0e0e0;
-  border-top: 4px solid #28a745;
+  margin: 25px auto;
+  border: 5px solid #e0e0e0;
+  border-top: 5px solid #28a745;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   animation: spin 1s linear infinite;
   display: none;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
+/* DASHBOARD */
+
 .dashboard {
   display: none;
-  padding: 40px;
+  padding: 25px;
 }
 
-header {
-  margin-bottom: 30px;
+header h2 {
+  font-size: 22px;
+}
+
+header p {
+  font-size: 14px;
+  color: #666;
 }
 
 .subscriptions, .powerups {
-  margin-bottom: 40px;
+  margin-top: 30px;
 }
 
 .card {
   background: white;
-  padding: 20px;
+  padding: 18px;
   margin-bottom: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.card h4 {
+  margin: 0 0 5px 0;
+}
+
+.active {
+  color: green;
+  font-weight: bold;
+}
+
+.inactive {
+  color: red;
+  font-weight: bold;
 }
