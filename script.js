@@ -1,18 +1,62 @@
-// MEMBER DATABASE
+// ==========================
+// MEMBER LIST (Alphabetical)
+// ==========================
+
 const members = {
-  "Grandad Steve": {
-    subscriptions: ["VIM (Gorilla Tag Fan Club)", "Ultimate VIM"],
-    powerups: ["Double Points Boost", "Priority Access"]
+  "Dad": {},
+  "Grandad Darren": {},
+  "Grandad Steve": {},
+  "Grandma Jean": {},
+  "James": {},
+  "Mum": {},
+  "Nannan": {},
+  "Uncle Paul": {}
+};
+
+// ==========================
+// MEMBERSHIP DATABASE
+// true = has membership
+// false = does not
+// ==========================
+
+const memberships = {
+  "Dad": {
+    VIM: true,
+    UltimateVIM: false
   },
-  "Uncle Paul": {
-    subscriptions: ["VIM (Gorilla Tag Fan Club)"],
-    powerups: ["Double Points Boost"]
+  "Grandad Darren": {
+    VIM: false,
+    UltimateVIM: false
+  },
+  "Grandad Steve": {
+    VIM: true,
+    UltimateVIM: true
+  },
+  "Grandma Jean": {
+    VIM: false,
+    UltimateVIM: false
+  },
+  "James": {
+    VIM: true,
+    UltimateVIM: true
+  },
+  "Mum": {
+    VIM: false,
+    UltimateVIM: false
   },
   "Nannan": {
-    subscriptions: [],
-    powerups: []
+    VIM: false,
+    UltimateVIM: false
+  },
+  "Uncle Paul": {
+    VIM: true,
+    UltimateVIM: false
   }
 };
+
+// ==========================
+// LOGIN FUNCTION
+// ==========================
 
 function verifyName() {
   const name = document.getElementById("nameInput").value.trim();
@@ -30,58 +74,48 @@ function verifyName() {
     loader.style.display = "none";
 
     if (!members[name]) {
-      alert("Name not found in membership system.");
+      alert("Name not found in system.");
       return;
     }
 
-    // Hide login screen
     document.getElementById("loginScreen").style.display = "none";
     document.getElementById("dashboard").style.display = "block";
-
-    // Display name
     document.getElementById("displayName").innerText = name;
 
-    // Load subscriptions + powerups
-    loadProfile(name);
+    loadMemberships(name);
 
-  }, 1500);
+  }, 1200);
 }
 
-function loadProfile(name) {
-  const profile = members[name];
+// ==========================
+// LOAD MEMBERSHIPS
+// ==========================
+
+function loadMemberships(name) {
 
   const subscriptionSection = document.querySelector(".subscriptions");
-  const powerupSection = document.querySelector(".powerups");
-
-  // Clear old cards (except titles)
   subscriptionSection.innerHTML = "<h3>Your Subscriptions</h3>";
-  powerupSection.innerHTML = "<h3>Your Power-Ups</h3>";
 
-  // Add subscriptions
-  if (profile.subscriptions.length === 0) {
-    subscriptionSection.innerHTML += "<p>No active subscriptions.</p>";
-  } else {
-    profile.subscriptions.forEach(sub => {
+  const userMemberships = memberships[name];
+
+  let hasAny = false;
+
+  for (let key in userMemberships) {
+
+    if (userMemberships[key] === true) {
+
+      hasAny = true;
+
       subscriptionSection.innerHTML += `
         <div class="card">
-          <h4>${sub}</h4>
+          <h4>${key}</h4>
           <p>Status: Active</p>
         </div>
       `;
-    });
+    }
   }
 
-  // Add powerups
-  if (profile.powerups.length === 0) {
-    powerupSection.innerHTML += "<p>No power-ups unlocked.</p>";
-  } else {
-    profile.powerups.forEach(power => {
-      powerupSection.innerHTML += `
-        <div class="card">
-          <h4>${power}</h4>
-          <p>Unlocked</p>
-        </div>
-      `;
-    });
+  if (!hasAny) {
+    subscriptionSection.innerHTML += "<p>No active memberships.</p>";
   }
 }
