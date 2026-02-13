@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bidding Funds 2026</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div class="login-container" id="loginScreen">
+    <h1>Bidding Funds 2026</h1>
+    <p>Enter your name to continue</p>
+
+    <input type="text" id="nameInput" placeholder="Your name">
+    <button onclick="verifyName()">Enter</button>
+
+    <div class="loader" id="loader"></div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="dashboard" id="dashboard">
+    <header>
+      <h2>Welcome, <span id="displayName"></span></h2>
+      <p>Your Membership Dashboard</p>
+    </header>
+
+    <section class="subscriptions">
+      <h3>Your Subscriptions</h3>
+
+      <div class="card">
+        <h4>VIM (Gorilla Tag Fan Club)</h4>
+        <p>Status: Active</p>
+        <p>Unlocks basic features</p>
+      </div>
+
+      <div class="card">
+        <h4>Ultimate VIM</h4>
+        <p>Status: Active</p>
+        <p>All premium features unlocked</p>
+      </div>
+    </section>
+
+    <section class="powerups">
+      <h3>Your Power-Ups</h3>
+
+      <div class="card">
+        <h4>Double Points Boost</h4>
+        <p>Earn 2x points on purchases</p>
+      </div>
+
+      <div class="card">
+        <h4>Priority Access</h4>
+        <p>Early access to special events</p>
+      </div>
+
+    </section>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
